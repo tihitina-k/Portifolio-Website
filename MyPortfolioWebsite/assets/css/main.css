@@ -1633,6 +1633,81 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+/* ========== IMAGE CONTAINER ========== */
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* keeps link and overlay inside image */
 }
+
+/* ========== IMAGE STYLING ========== */
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ========== HIDDEN LINK OVERLAY ========== */
+.image-container .hover-link {
+  position: absolute;
+  top: 60%;                     /* center vertically */
+  left: 50%;                    /* center horizontally */
+  transform: translate(-50%, -50%);
+  
+ 
+
+  
+  display: flex;                /* align text + icon neatly */
+  align-items: center;
+  
+  opacity: 0;                   /* hidden by default */
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;    /* smooth fade */
+  z-index: 2;                   /* above overlay */
+}
+
+/* ========== SHOW LINK ON HOVER ========== */
+.image-container:hover .hover-link {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* ========== ICON INSIDE LINK ========== */
+.image-container .hover-link i {
+  margin-left: 6px;
+  font-size: 0.9em;
+}
+
+/* ========== OPTIONAL: IMAGE DARKEN EFFECT ========== */
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* transparent by default */
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+.image-container:hover::after {
+  background: rgba(0, 0, 0, 0.3); /* darkens on hover */
+}
+.icon-circle {
+  display: inline-flex;        /* allows centering */
+  justify-content: center;
+  align-items: center;
+  width: 32px;                 /* size of circle */
+  height: 32px;
+  border-radius: 50%; 
+  color: #060606;         /* makes it circular */
+  background: whitesmoke; /* optional visible background */
+  padding: 25px;                /* optional padding inside circle */
+  margin-left: 6px;            /* space from text */
+  
+}
+
